@@ -7,4 +7,3 @@ Use these files to solve the following challenge:
 - Modify the workflow to add a job for testing the container.
 - Make sure the test job runs after the `build` job.
 - Add a step to the test job to run the published container and check the output for the word "container".
-# pub-container-test
