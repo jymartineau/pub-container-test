@@ -98,16 +98,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Run Docker image for testing
-        run: docker run --rm ghcr.io/${{ github.repository }}/image:main
+      - name: test image
+        run: docker run ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
